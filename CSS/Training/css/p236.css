@@ -1,0 +1,40 @@
+.top {  
+    background-color: #000000;
+    line-height: 2em;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.apple-des {
+    color: #edd118;
+}
+
+h3 {
+    color: #ff0000;
+}
+
+.check {
+    background-color: #000000;
+}
+
+.checkpls {
+    color: #ffffff;
+    font-size: 0.8em;
+    line-height: 2em;
+}
+
+.bottom {
+    font-weight: 900;
+    text-align: center;
+}
+
+.font-blue {
+    color: #0000ff;
+}
+
+.calltime {
+    font-size: 0.7em;
+}
