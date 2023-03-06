@@ -1,40 +1,48 @@
-.top {  
-    background-color: #000000;
-    line-height: 2em;
+.container {
+  width: 600px;
 }
 
-.title {
-    color: #ffffff;
-    font-size: 30px;
+.poster {
+  background-color: rgba(0, 0, 0, 70%);
+  height: 150px;
+  line-height: 2em;
 }
 
-.apple-des {
-    color: #edd118;
+h1 {
+  color: #ffffff;
+}
+
+.poster-desc {
+  color: #ffbb00;
+  font-size: 0.8em;
+}
+
+.content {
+  text-align: center;
+  font-weight: 900;
+  line-height: 2em;
+  border: 1px dashed #0000002f;
+}
+
+.content-check {
+  background-color: #000000;
+  height: 30px;
+  text-align: left;
+}
+
+.content-check-text {
+  color: #fff;
+  font-size: 0.8em;
 }
 
 h3 {
-    color: #ff0000;
+  color: #ff0000;
 }
 
-.check {
-    background-color: #000000;
+.accent {
+  color: #0000ff;
 }
 
-.checkpls {
-    color: #ffffff;
-    font-size: 0.8em;
-    line-height: 2em;
-}
-
-.bottom {
-    font-weight: 900;
-    text-align: center;
-}
-
-.font-blue {
-    color: #0000ff;
-}
-
-.calltime {
-    font-size: 0.7em;
+.content-call {
+  font-size: 0.8em;
 }
