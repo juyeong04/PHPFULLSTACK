@@ -1,0 +1,41 @@
+.container {
+    width: 800px;
+    height: 900px;
+    border: 30px solid black;
+    border-top: 1px solid black;
+    background-image: url(../img/img1.jpg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+h1 {
+    width: 700px;
+    height: 100px;
+    background-color: #003b00;
+    color: white;
+    text-align: center;
+    line-height: 3em;    
+    margin: 20px auto;
+}
+
+h2 {
+    font-style: italic;
+    position: relative;
+    left: 30%;
+}
+
+.main {
+    margin: 40px;
+    line-height: 1.8em;
+}
+p {
+    color: orange;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
