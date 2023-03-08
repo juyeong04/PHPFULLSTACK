@@ -28,6 +28,22 @@
                     <label for="pwcheck">비밀번호 확인</label>
                     <input type="password" required name="pwcheck" id="pwcheck">
                 </li>
+                <li>
+                    <label for="list">가입 경로</label>
+                    <select name="list" id="list">
+                        <option value="1">블로그</option>
+                        <option value="2">지인소개</option>
+                        <option value="3">기타</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="memo">메모</label>
+                    <textarea name="memo" id="memo" cols="50" rows="5" placeholder="남길 말씀이 있다면 여기에"></textarea>
+                </li>
+                <li>
+                    <label for="bday">생년월일</label>
+                    <input type="date" name="bday" id="bday" min="1900-01-01">
+                </li>
             </ul>
         </fieldset>
         <fieldset>
@@ -40,7 +56,6 @@
                 <label for="nomailcheck">메일 수신 안함</label>
             </div>
         </fieldset>
-        <!-- <button>가입하기</button> -->
         <input type="submit" value="가입하기" name="submit" id="submit">
         <input type="reset" value="취소">
     </form>

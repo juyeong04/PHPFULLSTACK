@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position2</title>
+    <style>
+
+        .box {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #acabab;
+            background-color: #eaeaf0;
+        }
+
+        .div-fixed {
+            width: 80px;
+            height: 80px;
+            background-color: black;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+
+        }
+
+        .div-relative-1 {
+            position: relative;
+            top: 10px;
+        }
+
+        .div-relative-2 {
+            position: relative;
+            top: -30px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="div-fixed"></div>
+        <div class="div-static box">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum veritatis eius, sed nostrum quaerat id odit non pariatur soluta. 
+        </div>
+        <div class="div-relative-1 box">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At perspiciatis quas accusantium enim, reiciendis dolor laboriosam,
+        </div>
+        <div class="div-relative-2 box">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore debitis eius porro nisi nostrum vel, aperiam libero repellat. Enim, nisi!
+        </div>
+    </section>
+</body>
+</html>

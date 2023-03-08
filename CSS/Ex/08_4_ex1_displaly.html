@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .art-1 {
+        border: 3px solid red;
+        display: none;
+    }
+
+    div {
+        border: 3px solid orange;
+    }
+
+    span {
+        border: 3px solid black;
+    }
+
+    .art-2>div, 
+    .art-2>span {
+        display: inline-block;
+    }
+
+    .wh {
+        width: 150px;
+        height: 150px;
+    }
+</style>
+<body>
+    <article class="art-2">
+        <div>div tag1</div>
+        <div>div tag2</div>
+        <span>span1</span>
+        <span>span2</span>
+    </article>
+
+    <br><br>
+    <div class="wh">테스트 div1</div>
+    <span class="wh">테스트 wh1</span>
+
+    <!-- <article class="art-1">
+        <h1>Display None</h1>
+        <div>div tag1</div>
+        <div>div tag2</div>
+
+    </article>
+
+    <div class="div-2">div tag2</div>
+    <h1>h1</h1>
+    <p>p</p>
+
+    <span>span</span>
+    <a href="">a</a> -->
+</body>
+</html>
