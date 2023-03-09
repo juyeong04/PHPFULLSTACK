@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 30px;
+  /* margin도 여기 주는게 맞나,,? */
+}
+/* 여기 shadow 넣고 싶은데 li가 float돼서 ul height 값 없음,,, */
+
+li {
+  float: left;
+  border-right: 1px solid black;
+}
+
+li:nth-child(6) {
+  border-right: none;
+}
+
+a {
+  text-decoration: none;
+  background-color: gray;
+  color: black;
+  font-weight: 900;
+  padding: 10px 30px;
+  display: block;
+}
+
+a:hover {
+  background-color: black;
+  color: white;
+}
+
+a:nth-child(6):hover {
+  background-color: red;
+} /* 얘 왜 안먹을까....? */
