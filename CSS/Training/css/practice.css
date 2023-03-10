@@ -23,15 +23,27 @@ li:nth-child(6) {
 a {
   text-decoration: none;
   background-color: gray;
-  color: black;
   font-weight: 900;
   padding: 10px 30px;
   display: block;
 }
 
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
 a:hover {
-  background-color: black;
   color: white;
+  background-color: black;
+}
+/* 추가) 이렇게 하면 되나..? */
+
+li:hover {
+  
 }
 
 a:nth-child(6):hover {
