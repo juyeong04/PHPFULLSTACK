@@ -34,9 +34,6 @@ a {
 
 a:hover {
   color: white;
-}
-
-li:not(:last-child) a:hover {
   background-color: black;
 }
 
