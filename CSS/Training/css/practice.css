@@ -5,47 +5,41 @@
 }
 
 ul {
-  list-style-type: none;
-  margin: 30px;
-  /* margin도 여기 주는게 맞나,,? */
+  width: 600px;
+  height: 40px;
+  box-shadow: 1px 5px 5px 5px #4d4d4d;
+  background-color: #b3b3b3;
+  margin: 10px auto;
 }
-/* 여기 shadow 넣고 싶은데 li가 float돼서 ul height 값 없음,,, */
 
 li {
   float: left;
+  width: 100px;
+  height: 100%;
+  line-height: 40px;
+  text-align: center;
+  list-style-type: none;
   border-right: 1px solid black;
 }
 
-li:nth-child(6) {
+li:last-child {
   border-right: none;
 }
 
 a {
   text-decoration: none;
-  background-color: gray;
-  font-weight: 900;
-  padding: 10px 30px;
   display: block;
-}
-
-a:link {
-  color: black;
-}
-
-a:visited {
   color: black;
 }
 
 a:hover {
   color: white;
+}
+
+li:not(:last-child) a:hover {
   background-color: black;
 }
-/* 추가) 이렇게 하면 되나..? */
 
-li:hover {
-  
-}
-
-a:nth-child(6):hover {
+li:last-child a:hover {
   background-color: red;
-} /* 얘 왜 안먹을까....? */
+}
