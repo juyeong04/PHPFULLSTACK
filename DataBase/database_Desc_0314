@@ -8,6 +8,7 @@ cd/  최상위폴더 이동
 
 autocommit 해제하는 이유?
 : 자동으로 커밋되게 되면 삭제해도 자동 커밋 될 위험 있어서,, 취소 안됨!
+autocommit = 0
 
 ctrl + space
 
@@ -198,8 +199,25 @@ NOW() : 오늘 날짜
 SELECT emp_no, first_name, last_name, gender
 FROM employees
 WHERE emp_no IN (
+                    SELECT emp_no
+                    FROM salaries
+                    GROUP BY emp_no 
+                    HAVING AVG(salary) >= 70000
+				);
+
+-- date 타입 속성 비교 방법
+-- SELECT *
+-- FROM titles
+-- WHERE emp_no = 10009
+-- 	AND to_date >= NOW();
+
+-- 현재 직책이 senior engineer인 사원의 사원번호와 성을 조회
+SELECT emp_no, last_name
+FROM employees
+WHERE emp_no IN (
 						SELECT emp_no
-						FROM salaries
-						GROUP BY emp_no 
-						HAVING AVG(salary) >= 70000
-					);
+						FROM titles
+						WHERE title = 'Senior Engineer' 
+						AND to_date >= NOW()
+						);
+
