@@ -1,0 +1,13 @@
+-- Delete 신중하게 사용하기!!!!!!!!!!
+-- delete, commit, rollback 사용한 뒤에 지워주기!!!!!!
+DELETE FROM departments;
+
+SELECT *
+FROM departments;
+=====
+
+DELETE FROM employees
+WHERE emp_no = 500000;
+
+====
+
