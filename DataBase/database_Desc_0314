@@ -110,6 +110,7 @@ FROM salaries;
 
 -- 그룹으로 묶어서 조회 : 
 -- GROUP BY 컬럼명 [ HAVING 직계함수'조건', 필요시 사용 ]
+!!!!!!!!!!!!! Having 은 group by 에서만 !!!!!!!!!!!!!!!!!!!!!!!!!!
 -- SELECT title, COUNT(title)
 -- FROM titles
 -- GROUP BY title HAVING COUNT(title) >= 100000;
