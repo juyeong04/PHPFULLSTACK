@@ -1,0 +1,24 @@
+-- UPDATE departments
+-- SET dept_name = '1000'
+-- WHERE dept_no = 'd001';
+
+ -- 조건 안적으면 모든 레코드 수정됨!!
+ -- where 먼저 적어주고 set 적기
+ -- update 하기 전에 쿼리문으로 update 할 속성 확인 먼저 하기!!
+ 
+-- UPDATE employees
+-- SET 
+-- 	birth_date = DATE(19970412)
+-- 	,first_name = 'red'
+-- 	,last_name = 'Park'
+-- WHERE emp_no = 500000;
+
+-- SELECT *
+-- FROM employees
+-- WHERE emp_no = 500000;
+
+UPDATE departments
+SET dept_name = '2000'
+WHERE dept_no = 'd001' OR dept_no = 'd002';
+-- where에 다중적용 하고 싶을 때, OR 사용
+
