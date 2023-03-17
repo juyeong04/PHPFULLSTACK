@@ -46,7 +46,7 @@ SELECT SUBSTRING_INDEX('ab/cd/ef', '/', 2); -- (문자열, 구분자, 횟수)
 -- << 수학함수 >>
 
 SELECT CEILING(1.1); -- : 올림
-SELECT FLOOR(1.9); -- : 내림
+SELECT FLOOR(1.9); -- : 버림
 SELECT ROUND(1.6); -- : 반올림
 
 SELECT TRUNCATE(2.12, 1);
