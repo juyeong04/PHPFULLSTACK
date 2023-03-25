@@ -8,7 +8,7 @@
 
     echo "안녕하세요 에코입니다\n";
 
-// 함수
+// 변수
     $test_num = '변수 변수';
     echo $test_num;
 
