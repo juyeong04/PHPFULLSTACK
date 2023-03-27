@@ -61,7 +61,60 @@ $week2 = array($week1[1], $week1[3], $week1[0], $week1[2]);
 // 배열의 원소 삭제 : unset(); 키값 자체가 사라짐!!
     $arr_week = array("Sun", "Mon", "delete", "Tue", "Wed");
     unset($arr_week[2]);
-    print_r($arr_week);
+    // print_r($arr_week);
 
-    
+
+// 중복되지 않는 원소를 반환 : array_diff(); 배열 값 커질수록 속도 느려짐
+    $arr_diff_1 = array("a", "b", "c");
+    $arr_diff_2 = array("a", "b", "d");
+    $arr_diff = array_diff($arr_diff_1, $arr_diff_2); // $arr_diff_1 기준, 중복되지 않는 값 출력
+    // print_r($arr_diff);
+
+// 배열의 정렬 : asort(), arsort(), ksort(), krsort();
+    // asort(); : 값 오름차순으로 정렬
+    $arr_asort = array("b", "a", "d", "c");
+    asort($arr_asort);
+    // print_r($arr_asort);
+
+    // arsort(); : 내림차순
+    $arr_arsort = array("b", "a", "d", "c");
+    arsort($arr_arsort);
+    // print_r($arr_arsort);
+
+    // ksort(); : 키값이 오름차순 정렬(연상배열에서 사용될 수 있음)
+    $arr_ksort = array("key1" => "val1"
+                    , "key3"=> "val3"
+                    , "key4"=> "val4"
+                    , "key2"=> "val2");
+    ksort($arr_ksort);
+    // print_r($arr_ksort);
+
+    // krsort(); : 키값이 내림차순 정렬(연상배열에서 사용될 수 있음)
+    $arr_krsort = array("key1" => "val1"
+                    , "key3"=> "val3"
+                    , "key4"=> "val4"
+                    , "key2"=> "val2");
+    krsort($arr_krsort);
+    // print_r($arr_krsort);
+
+// count(); : array의 요소 개수를 반환하는 함수
+    // echo count($arr_krsort);
+
+// foreach( $array as $key => $val ){} : 반복문
+// foreach( $array as $val ){};
+    $arr1 = array("a" => "1"
+                , "b"=> "2"
+                , "c"=> "3"
+                , "d"=> "4"
+            );
+    // foreach ($arr1 as $i => $j) : 키, value 값
+    // {
+    //     echo $i." : ".$j."\n";
+    // }
+    foreach($arr1 as $val) : value 값만!
+    {
+        echo $val."\n";
+    }
+
+
 ?>
