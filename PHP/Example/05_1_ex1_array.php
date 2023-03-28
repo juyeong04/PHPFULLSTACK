@@ -70,6 +70,7 @@ $week2 = array($week1[1], $week1[3], $week1[0], $week1[2]);
     $arr_diff = array_diff($arr_diff_1, $arr_diff_2); // $arr_diff_1 기준, 중복되지 않는 값 출력
     // print_r($arr_diff);
 
+
 // 배열의 정렬 : asort(), arsort(), ksort(), krsort();
     // asort(); : 값 오름차순으로 정렬
     $arr_asort = array("b", "a", "d", "c");
@@ -100,7 +101,8 @@ $week2 = array($week1[1], $week1[3], $week1[0], $week1[2]);
 // count(); : array의 요소 개수를 반환하는 함수
     // echo count($arr_krsort);
 
-// foreach( $array as $key => $val ){} : 반복문
+
+// foreach( $array as $key => $val ){} : 반복문 / 연상배열 썼을 때 유용하게 쓸 수 있음
 // foreach( $array as $val ){};
     $arr1 = array("a" => "1"
                 , "b"=> "2"
@@ -111,10 +113,10 @@ $week2 = array($week1[1], $week1[3], $week1[0], $week1[2]);
     // {
     //     echo $i." : ".$j."\n";
     // }
-    foreach($arr1 as $val) : value 값만!
-    {
-        echo $val."\n";
-    }
+    // foreach($arr1 as $val) : value 값 만!
+    // {
+    //     echo $val."\n";
+    // }
 
 
 ?>
