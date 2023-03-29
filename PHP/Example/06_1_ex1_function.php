@@ -3,6 +3,29 @@
 // -- function
     //return 명령문은 함수 실행을 종료하고, 주어진 값을 함수 호출 지점으로 반환
 
+    // void 함수 (리턴값이 없는)
+
+function sum($n1, $n2)
+{
+    echo $n1 + $n2;
+    return;// 생략됨
+}
+
+
+
+// return 함수(리턴값이 있는)
+
+function sum2($n1, $n2)
+{
+    return $n1 + $n2;
+}
+
+sum(1,2);
+sum(2,4);
+$result = sum2(3, 6);
+echo $result;
+sum($result, $result);
+
     function fnc_add($int_a, $int_b)
     {
         $sum = $int_a + $int_b;
