@@ -58,7 +58,7 @@ function print_star_rect($c)
 // print_star_tri(4);
 
 //==================================
-
+// 뭐적어 놓은거지...?
 // $arr = array(5, 10, 7, 3, 1);
 
 // foreach ($arr as $key => $val) 
@@ -70,13 +70,15 @@ function print_star_rect($c)
 // { 
 //     echo $i." > ".$arr[$i]."\n";
 // }
+//==========
 
 
 // Swap
 
-// $temp = $arr[0];
-// $arr[0] = $arr[1];
-// $arr[1] = $temp;
+$arr = array(5, 10, 7, 3, 1);
+// $temp = $arr[0]; ==> $temp = 5;
+// $arr[0] = $arr[1]; ==> $arr[0] = 10;
+// $arr[1] = $temp; ==> $arr[1] = 5;
 
 
 
@@ -116,33 +118,33 @@ $arr = array(5, 10, 7, 3, 1);
 $arr = array(5, 10, 7, 3, 1);
 
 // for문으로 max값
-function print_max($a)
-{
-    $max = $a[0]; //: for문 안에 있으면 max값이 치환이 안되고 계속 초기화됨
-    for ($i=1; $i < count($a); $i++) //1<5
-    { 
-        if ($max < $a[$i]) 
-        {
-            $max = $a[$i];
-        }
+// function print_max($a)
+// {
+//     $max = $a[0]; //: for문 안에 있으면 max값이 치환이 안되고 계속 초기화됨
+//     for ($i=1; $i < count($a); $i++) //1<5
+//     { 
+//         if ($max < $a[$i]) 
+//         {
+//             $max = $a[$i];
+//         }
     
-    }
-    return $max;
-}
-echo print_max($arr)."\n";
+//     }
+//     return $max;
+// }
+// echo print_max($arr)."\n";
 
-function print_min($a)
-{
-    $min = $a[0];
-    for ($i=1; $i < count($a); $i++) 
-    { 
-        if ($min > $a[$i]) 
-        {
-            $min = $a[$i];
-        }
-    }
-    return $min;
-}
+// function print_min($a)
+// {
+//     $min = $a[0];
+//     for ($i=1; $i < count($a); $i++) 
+//     { 
+//         if ($min > $a[$i]) 
+//         {
+//             $min = $a[$i];
+//         }
+//     }
+//     return $min;
+// }
 
 echo print_min($arr);
 

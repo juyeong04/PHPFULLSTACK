@@ -1,6 +1,6 @@
 <?php
 
-// -- 전역변수
+// -- 전역변수 : 함수 밖에서도 사용 가능한 변수
 
 function fnc_add()
     {
@@ -14,7 +14,7 @@ function fnc_add()
     echo fnc_add();
 
 
-// -- 정적변수
+// -- 정적변수 : 지정 함수 범위 안에서만 사용되고 밖에서는 사용 못하는 변수
 function fnc_add_1()
 {
     $i = 1;

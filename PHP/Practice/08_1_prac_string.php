@@ -21,11 +21,12 @@
     // {
     //     $arr_expl = explode("Hello", $a);
     //     $str_impl = implode("Happy", $arr_expl);
-    //     $a = $str_impl; // 필요 없는 변수 안쓰기!
-    //     $result_str = $a;
+    //     $a = $str_impl; // : 불필요 변수, 필요 없는 변수 안쓰기!
+    //     $result_str = $a;// : 불필요 변수
     //     return $result_str;
     // }
 
+    //== 효율적 ==
     // function my_str_replace($a)
     // {
     //     $arr_expl = explode("Hello", $a);
