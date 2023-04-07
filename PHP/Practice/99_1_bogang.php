@@ -331,17 +331,17 @@
     // 리턴 : $result_int int
     //----------------------------------
 
-    function my_sum_all($param_int)
-    {
-        $a = 1;
-        $sum = 0;
-        while ($a <= $param_int) 
+        function my_sum_all($param_int)
         {
-            $result_int += $a;
-            ++$a;
+            $a = 1;
+            $sum = 0;
+            while ($a <= $param_int) 
+            {
+                $result_int += $a;
+                ++$a;
+            }
+            return $result_int;
         }
-        return $result_int;
-    }
-    $result_sum = my_sum_all(10);
-    echo $result_sum;
+        $result_sum = my_sum_all(10);
+        echo $result_sum;
 ?>

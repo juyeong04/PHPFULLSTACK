@@ -6,12 +6,12 @@
     {
         // 클래스 멤버 변수
         public $std_name; // 어디서든 접근 가능
-        private $std_id; // studend class 내에서만 접근 가능
+        private $std_id; // student class 내에서만 접근 가능
         protected $std_age; // 상속 class 내에서만 접근 가능
         // 접근제어 지시자 : public, private, protected
 
 
-        // class 안에 있는 function을 method 라고 부름
+        // class 안에 있는 function =  method 라고 부름
         public function print_student( $param_std_name, $param_std_age )
         {
             $result_name =  "이름 : ".$param_std_name;

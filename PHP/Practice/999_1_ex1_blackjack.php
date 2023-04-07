@@ -24,18 +24,44 @@
 //7. 1입력 : 카드 더받기, 2입력 : 카드비교, 0입력 : 게임종료
 //8. 한번 사용한 카드는 다시 쓸 수 없음
 
+//--------------------------------------------------------------
 
+// $arr_card_shape = array("h", "s", "c", "d");
+// $arr_card_num = array("2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "K", "Q", "J");
+// $cnt = (count($arr_card_shape) * count($arr_card_num)) -1;
+// $deck = array();
+// foreach ($arr_card_num as $num_val) {
+//     foreach ($arr_card_shape as $shape_val) {
+//         array_push($deck,"$num_val$shape_val");
+//     }
+// }
 
 $arr_card_shape = array("h", "s", "c", "d");
-$arr_card_num = array("2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "K", "Q", "J");
-$cnt = (count($arr_card_shape) * count($arr_card_num)) -1;
-$deck = array();
-foreach ($arr_card_num as $num_val) {
-    foreach ($arr_card_shape as $shape_val) {
-        array_push($deck,"$num_val$shape_val");
+        $arr_card_num = array("2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "K", "Q", "J");
+        card_deck($arr_card_shape, $arr_card_num);
+        $var_card_deck = card_deck($arr_card_shape, $arr_card_num);
+
+// -------- 함수) 53장 카드 섞어서 모두 출력-----------
+
+function card_deck( $card_shape, $card_num ) // 카드 52장 섞여서 모두 출력
+{
+    global $cnt;
+    $cnt = (count($card_shape) * count($card_num)) -1;
+    $deck = array();
+    foreach ($card_num  as $num_val) {
+        foreach ($card_shape as $shape_val) {
+            array_push($deck,"$num_val$shape_val");
+        }
     }
+    shuffle($deck); // 랜덤값 생성
+    return $deck;
 }
-shuffle($deck);
+// $arr_card_shape = array("h", "s", "c", "d");
+// $arr_card_num = array("2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "K", "Q", "J");
+// card_deck($arr_card_shape, $arr_card_num);
+// $var_card_deck = card_deck($arr_card_shape, $arr_card_num);
+
+// var_dump(card_deck($arr_card_shape, $arr_card_num));
 
 
 // $user = array();
@@ -48,160 +74,158 @@ shuffle($deck);
 // $cnt--;
 // $dealer[] = $deck[$cnt];
 
-$user = array();
-for ($i=0; $i < 2; $i++) { 
-    $user[] = $deck[$cnt];
-    $cnt--;
-}
-$dealer = array();
-for ($i=0; $i < 2 ; $i++) { 
-    $dealer[] = $deck[$cnt];
-    $cnt--;
-}
+//------ 유저, 딜러 카드 2장씩 뽑기 --------- 
+// $user = array();
+// for ($i=0; $i < 2; $i++) { 
+//     $user[] = $deck[$cnt];
+//     $cnt--;
+// }
+// $dealer = array();
+// for ($i=0; $i < 2 ; $i++) { 
+//     $dealer[] = $deck[$cnt];
+//     $cnt--;
+// }
 
-
-
-$user_sum = 0;
-foreach ($user as $val) 
-{
-    if (strpos($val, "J") !== false || strpos($val, "K") !== false || strpos ($val, "Q"))
-    {
-        $user_sum += 10;
-    }
-    elseif (strpos($val, "A") !== false) 
-    {
-        $user_sum += 11;
-    }
-    else
-    {
-        $user_sum += intval(substr($val,0,1));
-    }
-}
-
-$dealer_sum = 0;
-foreach ($dealer as $val) 
-{
-    if (strpos($val, "J") !== false || strpos($val, "K") !== false || strpos ($val, "Q"))
-    {
-        $dealer_sum += 10;
-    }
-    elseif (strpos($val, "A") !== false) 
-    {
-        $dealer_sum += 11;
-    }
-    else
-    {
-        $dealer_sum += intval(substr($val,0,1));
-    }
-}
-
-
-
-if ($user_sum > $dealer_sum) 
-{
-
-    echo $user_sum." ".$dealer_sum."유저승리";
-}
-elseif($user_sum < $dealer_sum)
-{
-    echo $user_sum." ".$dealer_sum."딜러승리";
-}
-elseif($user_sum === $dealer_sum)
-{
-    echo $user_sum." ".$dealer_sum."무승부";
-}
-
-
-
-
-//------- 이중배열도 해보기
-
-// foreach ($deck as $key => $val) {
-    
+// $user = array(); 
+// for ($i=0; $i < 2; $i++) { 
+//     $user[] = $var_card_deck[$cnt];
+//     $cnt--;
+// }
+// $dealer = array();
+// for ($i=0; $i < 2 ; $i++) { 
+//     $dealer[] = $var_card_deck[$cnt];
+//     $cnt--;
 // }
 
 
-// print_r($deck[$cnt]);
-// $cnt--;
-// print_r($deck[$cnt]);
-// $cnt--;
+
+//------ 유저, 카드 더한 점수 함수 --------------
+function player_score($param_player)
+{
+    $player_sum = 0;
+    foreach ($param_player as $val) 
+    {
+        if (strpos($val, "J") !== false || strpos($val, "K") !== false || strpos ($val, "Q"))
+        {
+            $player_sum += 10;
+        }
+        else if (strpos($val, "A") !== false) 
+        {
+            if ($player_sum +11 > 21) {
+                $player_sum +=1;
+            }
+            $player_sum += 11;
+        }
+        else
+        {
+            $player_sum += intval(substr($val,0,-1));
+        }
+    }
+    return $player_sum;
+}
 
 
-// class card
+//---- 딜러 카드 더한 값 함수 ==> user 함수랑 같은 내용이어서 하나로 합쳐줌
+// function dealer_score($val)
 // {
-//     public function ran_card()
+//     $dealer_sum = 0;
+//     foreach ($dealer as $val) 
 //     {
-//         $str_k = 11;
-//         $str_q = 12;
-//         $str_j = 13;
-//         $str_a = 14;
-//         $arr_card = array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
-//         $arr_card_all = array(
-//                                 $arr_card
-//                                 , $arr_card
-//                                 , $arr_card
-//                                 , $arr_card
-//         );
-//         $card_pick_shape = $arr_card_all[mt_rand(0, 3)];
-//         $card_pick_num = $card_pick_shape[mt_rand(0,12)];
-//         return $card_pick_num; 
-//     }
-    
-    
-// }
-// $obj_card = new card;
-// $result = $obj_card->ran_card();
-
-// var_dump($result);
-
-// for(i=0; $i <= 5; $i++) {
-//     $arr[$i] = rand(1,45);
-//     for ($p=0; $p < $i; $p++) { 
-//         if($arr[$i] == $arr[$p])
+//         if (strpos($val, "J") !== false || strpos($val, "K") !== false || strpos ($val, "Q"))
 //         {
-//             $i--;
+//             $dealer_sum += 10;
+//         }
+//         elseif (strpos($val, "A") !== false) 
+//         {
+//             $dealer_sum += 11;
+//         }
+//         else
+//         {
+//             $dealer_sum += intval(substr($val,0,1));
 //         }
 //     }
+//     return $dealer_sum;
 // }
 
-// function card_pick()
+//------유저, 딜러 함수 사용해서 카드 점수 2개 더하기 ---------
+
+// $user_sum = 0;
+// $user_sum += player_score($user);
+
+// $dealer_sum = 0;
+// $dealer_sum += player_score($dealer);
+
+
+// $dealer_sum = 0;
+// foreach ($dealer as $val)
 // {
-//     $arr_card_shape = array("h", "s", "c", "d");
-//     $arr_card_num = array("2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "K", "Q", "J");
-//     $deck = array();
-//     foreach ($arr_card_num as $shape_val) {
-//         foreach ($arr_card_shape as $num_val) {
-//             $deck[] = array("shape" => $shape_val, "num" => $num_val);
-//         }
-//     }
-//     return $deck;
+//     $dealer_sum += player_score($val);
 // }
 
 
+//------- 유저, 딜러 카드 값 비교 -----------
+// if ($user_sum > $dealer_sum) 
+// {
+//     echo $user_sum." ".$dealer_sum."유저승리";
+// }
+// else if($user_sum < $dealer_sum)
+// {
+//     echo $user_sum." ".$dealer_sum."딜러승리";
+// }
+// else if($user_sum === $dealer_sum)
+// {
+//     echo $user_sum." ".$dealer_sum."무승부";
+// }
+
+$user = array(); // 유저 카드 2개
+        for ($i=0; $i < 2; $i++) { 
+            $user[] = $var_card_deck[$cnt];
+            $cnt--;
+        }
+        $dealer = array(); // 딜러 카드
+        for ($i=0; $i < 2 ; $i++) { 
+            $dealer[] = $var_card_deck[$cnt];
+            $cnt--;
+        }
+    
+        
+
+        $user_sum = 0;
+        foreach ($user as $val) 
+        {
+            $user_sum += player_score($val);
+        }
+        
+        $dealer_sum = 0;
+        foreach ($dealer as $val) {
+            $dealer_sum += player_score($val);
+        }
+
+        echo "유저 : ".$user_sum;
+        echo "\n";
+        echo "딜러 : ".$dealer_sum;
 
 
 
+// while(true) {
+// 	echo '시작';
+// 	print "\n";
+// 	fscanf(STDIN, "%d\n", $input);        
+// 	if($input === 0) {
+// 		break;
+// 	}
 
+//     else if($input === 1) // 카드 2장 뽑고 더한 값 
+//     {
+    
 
+        
+        
+//     }
 
+// 	echo $input;
+// 	print "\n";
+// }
+// echo "끝!\n";
 
-
-
-
-
-
-
-
-
-
-while(true) {
-	echo '시작';
-	print "\n";
-	fscanf(STDIN, "%d\n", $input);        
-	if($input === 0) {
-		break;
-	}
-	echo $input;
-	print "\n";
-}
-echo "끝!\n";
+?>
