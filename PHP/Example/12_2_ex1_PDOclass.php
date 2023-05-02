@@ -45,7 +45,7 @@
         //     );
         
         // $stmt = $obj_conn->prepare( $sql ); // prepared statement를 생성
-        // $stmt->execute( $arr_prepare ); // '연상배열' 로 쿼리실행
+        // $stmt->execute( $arr_prepare ); // prepare 값 함수에 
         // $result = $stmt->fetchAll(); // 퀴리 결과를 fetch
         // // var_dump( $result );
 
