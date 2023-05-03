@@ -44,7 +44,7 @@
     //     console.log(dan + " * " + i + " = " + (dan*i))
     // }
 
-// foreach 타입'배열'에서만 사용 가능
+// foreach '배열'에서만 사용 가능
     let arr = [1, 2, 3, 4];
     // arr.forEach( function(val) {
     //     console.log(val);
@@ -65,8 +65,8 @@
     //     console.log(i+ " : " + arr[i]);
     // }
 
-arr = [5,4,3];
-arr.num = 2; // key 값 num, arr[3]은 없음
+    arr = [5,4,3];
+    arr.num = 2; // iterator 부여 된 것만 출력됨 ===> arr.length 값 3 나옴 / num:2 는 iterator 부여 X
 // for...of : (val 값)
     for( let i of arr ) {
         console.log(i);
