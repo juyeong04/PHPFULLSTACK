@@ -21,14 +21,22 @@
 
         //1. 
             let arr = [];
-            for(let i = 1; i<=100; i++) {
+            for(let i = 1; i <=num; i++) {
                 arr.push(i);
             }
             // console.log(arr);
         
         //2.
-            let result2 = arr.filter(function (val) {
-            })
+            function primeNum(val)  {
+                for(let i = 2; i < val; i++) {
+                    if(val % i ===0) {
+                        return false;
+                    }
+                }
+                return val !== 1;
+            }
+            // let arr2 = arr.filter( val => primeNum(val) );
+            let arr2 = arr.filter( primeNum(val) ); // 이렇게 사용도 가능!
     </script>
 </body>
 </html>
