@@ -28,9 +28,6 @@ function showImg(){
 
 function makeList(data) {
     const imgCon = document.getElementById('img_con'); // div 태그
-
-
-    
     imgCon.innerHTML = ""; // 기존이미지 삭제
     data.forEach(item => {
         const tagImg = document.createElement('img'); // img 태그 만듦
