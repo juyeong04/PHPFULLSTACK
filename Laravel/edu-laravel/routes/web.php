@@ -180,16 +180,17 @@ use Illuminate\Support\Facades\URL;
 // ---------------------
 // 컨트롤러
 // ---------------------
-// powershell에서 컨트롤러 만드는 법: php artisan make:controller TestController(파일명)
+// !powershell에서 컨트롤러 만드는 법: php artisan make:controller TestController(파일명)
 // 튜플방식 : 캐시화해주면 미리 필요할것 같은거 만들어서 메모리에 저장해서 불러오는게 빨라짐
 
-// Route::get('/test', [TestController::class(파일명), 'index(메소드 명)']);
+// !Route::get('/test', [TestController::class(파일명), 'index(메소드 명)']);
 use App\Http\Controllers\TestController;
 Route::get('/test', [TestController::class, 'index'])->name('tests.idnex'); // 컨트롤러 호출
 
-// php artisan make:controller TaskController(파일명) --resource : 의존성 해결해줌
+// ! php artisan make:controller TaskController(파일명) --resource : 의존성 해결해줌
 use App\Http\Controllers\TasksController;
 Route::resource('/tasks', TasksController::class);
+// ! route list 확인 : php artisan route:list
 // tasks.index
 //tasks.store
 //tasks.create
@@ -203,3 +204,9 @@ Route::resource('/tasks', TasksController::class);
 use App\Http\Controllers\BladeController;
 Route::get('/blade', [BladeController::class, 'index'])->name('blade.index');
 
+//------------------------------------
+// BoardController 연결
+use  App\Http\Controllers\BoardController;
+
+// Route::get('/board', [BoardController::class, 'index'])->name('board.index'); 삭제
+Route::resource('/board', BoardController::class); // resource로 controller만들어 줬기 때문
