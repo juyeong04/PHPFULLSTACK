@@ -42,7 +42,7 @@ class UserController extends Controller
             $req->email
         ]);
 
-        // Log::debug("Select user", [$user[0]]); //? $user 어케 돼있는거지???????????????
+        // Log::debug("Select user", [$user[0]]); // $user는 이중배열형태 ex) [0 => [password => 'asdf']]
         //! $user pdo 가져올때랑 배열 똑같음
         // if(!$user || !Hash::check($req->password,  $user[0]->password)) {
             if(!$user || $req->password !== $user[0]->password) {

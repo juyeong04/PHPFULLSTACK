@@ -31,7 +31,8 @@ class ApiUserController extends Controller
     }
 
     public function userpost(Request $req) {
-        // Todo 동적으로 움직일 수 있게 만들어줘야함!!!!!
+        //TODO 동적으로 움직일 수 있게 만들어줘야함!!!!!
+        //?? 동적으로 움직일수 있는걸로 만든거 아님???????????
         $arr = [
             'code' => '0'
             ,'msg' => ''
