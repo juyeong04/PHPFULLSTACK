@@ -75,11 +75,11 @@
 //--------------------------------------------------------------------------
 
 // 3. 새로운 요소 만들기
-    // 요소 만들기
+    // createElement() : 요소 만들기
     const cli = document.createElement('li');
     cli.innerHTML ='야끼우동';
 
-    //요소를 자식요소의 가장 마지막에 삽입
+    // appendChild() : 요소를 자식요소의 가장 마지막에 삽입
     const ul = document.getElementsByTagName('ul');
     // ul[0].appendChild(cli);
 
@@ -88,7 +88,7 @@
     //2. li[2]
     //3. document.querySelector('li:nth-child(3)');
     const zzam = document.querySelector('li:nth-child(3)');
-    ul[0].insertBefore(cli, zzam);
+    ul[0].insertBefore(cli, zzam); // 짬뽕 전에 야끼우동이 삽입
 
     // 해당 요소를 지우는 방법
     // cli.remove();
