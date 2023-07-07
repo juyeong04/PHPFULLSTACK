@@ -1,0 +1,11 @@
+.nav {
+    border-bottom: 1px solid rgba(202, 201, 201, 0.582);
+    margin-bottom: 20px;
+    background-color: #dae1e750;
+    border-radius: 10px;
+  }
+  .nav a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 20px;
+  }
