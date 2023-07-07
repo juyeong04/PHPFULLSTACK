@@ -2,7 +2,7 @@
     <div class="bg_black" v-if="modalFlg">
         <div class="bg_white">
             <img src="" alt="" style="width: 100%">
-            <h4></h4>
+            <h4>{{ products[productNum].name }}</h4>
             <p>설명</p>
             <p>가격</p>
             <button >수량 증가</button><br>
@@ -17,8 +17,8 @@
 export default {
     name: 'Modal',
     props: {
-        modalFlg: Array,
-        product: Object,
+        modalFlg: Boolean,
+        products: Array,
         productNum: Number,
     }
 }
