@@ -13,11 +13,11 @@
   </nav> -->
 
   <!-- 이벤트 훅 : 특정 시점에 동작하게 하고 싶을때 -->
-  <div class="discount" v-if="flg">
-    <p>지금 당장 구매하시면, 20% 할인!</p>
+  <div class="discount" >
+    <p>지금 당장 구매하시면, {{time}}% 할인!</p>
   </div>
-  <button @click="hookTest=!hookTest">훅테스트</button>
-  {{ hookTest }}
+  <!-- <button @click="hookTest=!hookTest">훅테스트</button>
+  {{ hookTest }} -->
 
   <!-- v-model 0710 -->
     <!-- input value type은 String임! -->
@@ -117,6 +117,8 @@ export default {
       productInput:'',
       hookTest: false,
       // flg: false,
+      time: 5,
+      interval:null,
       
       
     }
@@ -124,9 +126,19 @@ export default {
   // updated() {
   //   this.flg=true;
   // },
-  // ** created : 데이터를 다 만들고 나서 실행함
-  created() {
-    this.flg=true;
+  // ** created : computed, methods, watch 등이 활성화되어 접근이 가능 /데이터를 다 만들고 나서 실행함
+  // created() {
+  //   this.flg=true;
+  // },
+  // ** mounted : 가상 DOM의 내용이 실제 DOM에 부착되고 난 이후에 실행/ data, computed, methods, watch 등 모든 요소에 접근이 가능
+  mounted() { // 접속했을 때 최초 1번 실행됨
+    this.interval = setInterval(()=>{
+      this.time--
+      if(this.time ==0) {
+      clearInterval(this.interval);
+      }
+    }, 1000);
+    
   },
   watch: { // 실시간 감시 함수 정의 영역
     inputTest(input) {
