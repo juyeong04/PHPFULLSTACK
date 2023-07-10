@@ -12,21 +12,33 @@
     <a href="">기타</a>
   </nav> -->
 
+  <!-- 이벤트 훅 : 특정 시점에 동작하게 하고 싶을때 -->
+  <div class="discount" v-if="flg">
+    <p>지금 당장 구매하시면, 20% 할인!</p>
+  </div>
+  <button @click="hookTest=!hookTest">훅테스트</button>
+  {{ hookTest }}
+
   <!-- v-model 0710 -->
     <!-- input value type은 String임! -->
     <!-- watch method 유효성검사 함수 작성 -->
-    <!-- <input type="text" @input="inputTest = $event.target.value"> -->
-    <input type="text" v-model="inputTest">
-    <br>
-    <span>{{ inputTest }}</span>
-    <br>
+      <!-- <input type="text" @input="inputTest = $event.target.value"> -->
+      <!-- <input type="text" v-model="inputTest">
+      <br>
+      <span>{{ inputTest }}</span>
+      <br> -->
 
   <!-- 모달 -->
-  <!-- <Modal @closeModal="modalFlg=false" :modalFlg="modalFlg" :products = "products" :productNum = "productNum" @plus="plus(productNum);" @minus="minus(productNum);"></Modal> -->
-  <div class="startTransition">
-  <Modal @closeModal="modalFlg=false;" :modalFlg="modalFlg" :products = "products" :productNum = "productNum"></Modal>
-  </div>
-  
+    <!-- <Modal @closeModal="modalFlg=false" :modalFlg="modalFlg" :products = "products" :productNum = "productNum" @plus="plus(productNum);" @minus="minus(productNum);"></Modal> -->
+    <!-- 모달창 부드럽게 뜨기 방법1-->
+      <!-- <div class="startTransition" :class="{endTransition : modalFlg}">
+      <Modal @closeModal="modalFlg=false;" :modalFlg="modalFlg" :products = "products" :productNum = "productNum"></Modal>
+      </div> -->
+    <!-- 모달창 부드럽게 뜨기 방법2-->
+      <transition name="modalTransition">
+        <Modal @closeModal="modalFlg=false;" :modalFlg="modalFlg" :products = "products" :productNum = "productNum"></Modal>
+      </transition>
+
   <!-- <div class="bg_black" v-if="modalFlg">
     <div class="bg_white" >
       <img :src="products[productNum].img" alt="" style="width: 100%">
@@ -41,7 +53,7 @@
   </div> -->
 
   <!-- 상품 리스트 -->
-  <ProductList @openModal="modalFlg=true; productNum=i;" :product = "product" v-for="(product, i) in products" :key="i"></ProductList>
+    <ProductList @openModal="modalFlg=true; productNum=i;" :product = "product" v-for="(product, i) in products" :key="i"></ProductList>
 
   <!-- 반복문 (v-for) 0706-->
   <!-- 인덱스(= for in) -->
@@ -103,9 +115,18 @@ export default {
       navList: ['홈', '상품', '기타'],
       inputTest: '',
       productInput:'',
+      hookTest: false,
+      // flg: false,
       
       
     }
+  },
+  // updated() {
+  //   this.flg=true;
+  // },
+  // ** created : 데이터를 다 만들고 나서 실행함
+  created() {
+    this.flg=true;
   },
   watch: { // 실시간 감시 함수 정의 영역
     inputTest(input) {

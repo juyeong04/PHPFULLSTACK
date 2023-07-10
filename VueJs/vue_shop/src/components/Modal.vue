@@ -1,7 +1,7 @@
 <template >
     <div class="bg_black" v-if="modalFlg">
         <div class="bg_white">
-            <img src="" alt="" style="width: 100%">
+            <img :src="products[productNum].img" alt="" style="width: 100%">
             <h4>{{ products[productNum].name }}</h4>
             <p>{{ products[productNum].content }}</p>
             <!-- <p>가격 : {{ products[productNum].price*products[productNum].count }}</p> -->

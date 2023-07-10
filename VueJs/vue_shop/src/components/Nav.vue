@@ -4,7 +4,7 @@
             <!-- <a href="">HOME</a>
             <a href="">상품</a>
             <a href="">기타</a> -->
-            <a v-for="item in navList" :key="item">{{ item }}</a>
+            <a href="" v-for="item in navList" :key="item">{{ item }}</a>
             {{ product1 }}
         </nav>
 </template>

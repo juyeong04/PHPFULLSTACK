@@ -9,7 +9,7 @@
         <p>{{ item.count }}개</p>
     </div> -->
     
-        <div>싸!다!</div>
+        <div style="color:blue; font-size: 30px; font-weight: bold;">싸!다!</div>
             <img :src="product.img" style="width:200px">
             <h4 @click="$emit('openModal');">{{product.name}}</h4>
             <p>{{ product.content }}</p>
