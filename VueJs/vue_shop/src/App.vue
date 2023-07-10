@@ -12,8 +12,17 @@
     <a href="">기타</a>
   </nav> -->
 
+  <!-- v-model 0710 -->
+    <!-- input value type은 String임! -->
+    <!-- watch method 유효성검사 함수 작성 -->
+    <!-- <input type="text" @input="inputTest = $event.target.value"> -->
+    <input type="text" v-model="inputTest">
+    <br>
+    <span>{{ inputTest }}</span>
+    <br>
+
   <!-- 모달 -->
-  <Modal @closeModal="modalFlg=false" :modalFlg="modalFlg" :product = "products" :productNum = "productNum" ></Modal>
+  <Modal @closeModal="modalFlg=false" :modalFlg="modalFlg" :products = "products" :productNum = "productNum" @plus="plus(productNum);" @minus="minus(productNum);"></Modal>
   <!-- <div class="bg_black" v-if="modalFlg">
     <div class="bg_white" >
       <img :src="products[productNum].img" alt="" style="width: 100%">
@@ -28,7 +37,7 @@
   </div> -->
 
   <!-- 상품 리스트 -->
-  <ProductList @openModal="modalFlg=true; productNum=i" :product = "product" :modalFlg = "modalFlg" v-for="(product, i) in products" :key="i"></ProductList>
+  <ProductList @openModal="modalFlg=true; productNum=i;" :product = "product" v-for="(product, i) in products" :key="i"></ProductList>
 
   <!-- 반복문 (v-for) 0706-->
   <!-- 인덱스(= for in) -->
@@ -87,18 +96,29 @@ export default {
       styleB: 'color:blue; font-size:30px; font-weight:bold',
       modalFlg:false,
       productNum: 0,
-      navList: ['홈', '상품', '기타']
+      navList: ['홈', '상품', '기타'],
+      inputTest: '',
       
     }
+  },
+  watch: { // 실시간 감시 함수 정의 영역
+    inputTest(input) {
+      if(input == 3) {
+        alert('333');
+      }
+    },
   },
   methods: { // 함수를 설정하는 영역
     plus(i) {
       this.products[i].count++;
     },
-    openModal(i) {
-      this.modalFlg = true
-      this.productNum = i;
+    minus(i) {
+      this.products[i].count--;
     }
+    // openModal(i) {
+    //   this.modalFlg = true
+    //   this.productNum = i;
+    // }
   },
   components: {
     Nav,

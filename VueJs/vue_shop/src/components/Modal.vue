@@ -3,10 +3,10 @@
         <div class="bg_white">
             <img src="" alt="" style="width: 100%">
             <h4>{{ products[productNum].name }}</h4>
-            <p>설명</p>
-            <p>가격</p>
-            <button >수량 증가</button><br>
-            <button>수량 감소</button>
+            <p>{{ products[productNum].content }}</p>
+            <p>{{ products[productNum].price }}</p>
+            <button @click="$emit('plus')">수량 증가</button><br>
+            <button @click="$emit('minus')">수량 감소</button>
             <span>0</span><br>
             <button @click="$emit('closeModal');">닫기</button> 
             <!-- 부모한테 메세지 보냄 $emit('closeModal'); -->
