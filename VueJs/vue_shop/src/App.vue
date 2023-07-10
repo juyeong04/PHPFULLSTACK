@@ -22,7 +22,11 @@
     <br>
 
   <!-- 모달 -->
-  <Modal @closeModal="modalFlg=false" :modalFlg="modalFlg" :products = "products" :productNum = "productNum" @plus="plus(productNum);" @minus="minus(productNum);"></Modal>
+  <!-- <Modal @closeModal="modalFlg=false" :modalFlg="modalFlg" :products = "products" :productNum = "productNum" @plus="plus(productNum);" @minus="minus(productNum);"></Modal> -->
+  <div class="startTransition">
+  <Modal @closeModal="modalFlg=false;" :modalFlg="modalFlg" :products = "products" :productNum = "productNum"></Modal>
+  </div>
+  
   <!-- <div class="bg_black" v-if="modalFlg">
     <div class="bg_white" >
       <img :src="products[productNum].img" alt="" style="width: 100%">
@@ -98,6 +102,8 @@ export default {
       productNum: 0,
       navList: ['홈', '상품', '기타'],
       inputTest: '',
+      productInput:'',
+      
       
     }
   },
@@ -105,6 +111,8 @@ export default {
     inputTest(input) {
       if(input == 3) {
         alert('333');
+        this.inputTest='';
+        
       }
     },
   },
