@@ -4,7 +4,7 @@
   <!-- 헤더 -->
     <div class="header">
       <ul>
-        <li class="header-button header-button-left" v-if="$store.state.tabFlg != 0" @click="$store.commit('changeTabFlg', 0)">취소</li>
+        <li class="header-button header-button-left" v-if="$store.state.tabFlg != 0" @click="$store.commit('changeTabFlg', 0); $store.commit('clearState')">취소</li>
         <li>
           <img class="logo" alt="Vue logo" src="./assets/logo.png">
         </li>
@@ -43,6 +43,7 @@ export default {
       let imgUrl = URL.createObjectURL(file[0]); //url로 만듦
       this.$store.commit('changeImgUrl', imgUrl);
       this.$store.commit('changeTabFlg', 1);
+      e.target.value=''; // 이벤트 타겟 value 초기화(같은 사진 넣을수 있게)
     }
   },
   components: {

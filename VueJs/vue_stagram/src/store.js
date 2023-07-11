@@ -13,6 +13,8 @@ const store = createStore ({
             addBtnFlg: true, // 더보기 버튼 표시용 flg
             tabFlg: 0, // 탭 ui flg(0: 메인, 1:필터, 2:작성)
             imgUrl: '',
+            filter: '', // 필터명
+
         }
     },
     mutations: { // 일반적인 함수들 데이터
@@ -38,7 +40,16 @@ const store = createStore ({
         // 이미지 URL 변경
         changeImgUrl(state, imgUrl) {
             state.imgUrl = imgUrl;
-        }
+        },
+        // 필터명 변경
+        changeFilter(state, filter) {
+            state.filter = filter;
+        },
+        // 초기화
+        clearState(state) {
+            state.filter = '';
+            state.imgUrl = '';
+        },
     },
     actions: { // ajax 통신같은 데이터
         getMainList(context) { //파라미터 아무 이름이나 상관 없음
