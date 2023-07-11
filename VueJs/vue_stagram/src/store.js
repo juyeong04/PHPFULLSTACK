@@ -4,8 +4,9 @@
 
 import { createStore } from 'vuex'
 
+
 const store = createStore ({
-    state() { // 데이터 정의
+    state() { // 데이터 저장하는 영역
         return {
             test: '테스트용',
         }
