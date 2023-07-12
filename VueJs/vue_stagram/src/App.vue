@@ -9,6 +9,7 @@
           <img class="logo" alt="Vue logo" src="./assets/logo.png">
         </li>
         <li class="header-button header-button-right" @click="$store.commit('changeTabFlg', 2)" v-if="$store.state.tabFlg == 1">다음</li>
+        <li class="header-button header-button-right" @click="$store.dispatch('writeContent')" v-if="$store.state.tabFlg == 2">작성</li>
       </ul>
     </div>
     <!-- {{ $store.state.lastId }} -->
@@ -38,11 +39,13 @@ export default {
     this.$store.dispatch('getMainList'); // store에 있는 getMainList()에 접근
   },
   methods: {
-    updateImg(e) {// 이미지 파일 저장
-      let file = e.target.files;
+    updateImg(e) {// 이미지 파일 저장/ e : js에서 자동으로 변환해주는거, 파라미터에 이벤트 발생했을때 모든 태그 파라미터로 담김
+      let file = e.target.files; // 이미지 파일
       let imgUrl = URL.createObjectURL(file[0]); //url로 만듦
+      // let imgFile = file[0];
       this.$store.commit('changeImgUrl', imgUrl);
       this.$store.commit('changeTabFlg', 1);
+      this.$store.commit('uploadImgFile', file[0]); // 이미지 업로드 파일
       e.target.value=''; // 이벤트 타겟 value 초기화(같은 사진 넣을수 있게)
     }
   },

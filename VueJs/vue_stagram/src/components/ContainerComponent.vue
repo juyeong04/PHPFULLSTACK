@@ -18,7 +18,8 @@
     <div v-if="$store.state.tabFlg == 2">
         <div class="upload-img" :class="$store.state.filter" :style="{backgroundImage : `url('${$store.state.imgUrl}')`}"></div>
         <div >
-            <textarea name="content" id="content" placeholder="글 작성 하세요" class="write-box"></textarea>
+            <!-- <textarea name="content" id="content" placeholder="글 작성 하세요" class="write-box" v-model="$store.state.createContent"></textarea> -->
+            <textarea name="content" id="content" placeholder="글 작성 하세요" class="write-box" ></textarea>
         </div>
     </div>
 
@@ -36,7 +37,15 @@ export default {
             filterList: [ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"],
 
         }
-    }
+    },
+    methods: {
+    updateImg(e) {// 이미지 파일 저장
+        let file = e.target.files;
+        let imgUrl = URL.createObjectURL(file[0]); //url로 만듦
+        this.$store.commit('', imgUrl);
+        e.target.value=''; // 이벤트 타겟 value 초기화(같은 사진 넣을수 있게)
+        }
+    },
 }
 </script>
 <style >
