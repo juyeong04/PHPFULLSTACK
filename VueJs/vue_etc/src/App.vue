@@ -47,7 +47,7 @@ export default {
       // 처리
     }),
 
-    return { test, data, data2};
+    return { test, data, data2 };
   },
 
 }

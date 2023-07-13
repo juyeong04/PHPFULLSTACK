@@ -1,0 +1,32 @@
+.con {
+    width: 500px;
+    background-color: #ebe3d496;
+    /* border: solid 5px #ebe3d496; */
+    border-radius: 10px;
+    margin: 30px auto;
+    padding: 20px;
+}
+.title {
+    text-align: center;
+}
+
+/* write */
+.write-part {
+    width: 70%!important;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* list */
+.list-con {
+    display: flex;
+}
+.content{
+    width: 60%;
+}
+.date{
+    width: 25%;
+}
+.del {
+    width: 10%;
+}
