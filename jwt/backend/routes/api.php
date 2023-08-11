@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // 인증절차 위해 토큰 발행함(json형태에서 암호화 돼서 보여짐)
-Route::get('/token', [AuthController::class, 'issueToken']);
+Route::post('/token', [AuthController::class, 'issueToken']);
 Route::get('/chk', [AuthController::class, 'chk']);
